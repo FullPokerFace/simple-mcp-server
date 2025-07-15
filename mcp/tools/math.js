@@ -28,6 +28,24 @@ export function registerMathTools(server) {
             required: ["a", "b"],
           },
         },
+        {
+          name: "subtract",
+          description: "Subtract second number from first number",
+          inputSchema: {
+            type: "object",
+            properties: {
+              a: {
+                type: "number",
+                description: "First number (minuend)",
+              },
+              b: {
+                type: "number",
+                description: "Second number (subtrahend)",
+              },
+            },
+            required: ["a", "b"],
+          },
+        },
       ],
     };
   });
@@ -54,6 +72,29 @@ export function registerMathTools(server) {
           {
             type: "text",
             text: `The result of ${a} + ${b} is ${result}`,
+          },
+        ],
+      };
+    }
+
+    if (name === "subtract") {
+      const { a, b } = args;
+      
+      // Validate inputs
+      if (typeof a !== "number" || typeof b !== "number") {
+        throw new McpError(
+          ErrorCode.InvalidParams,
+          "Both 'a' and 'b' must be numbers"
+        );
+      }
+
+      const result = a - b;
+      
+      return {
+        content: [
+          {
+            type: "text",
+            text: `The result of ${a} - ${b} is ${result}`,
           },
         ],
       };
