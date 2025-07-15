@@ -4,12 +4,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "build": "echo 'No build needed'",
+    "start": "node index.js",
     "dev": "concurrently \"nodemon index.js\" \"npx @modelcontextprotocol/inspector node index.js\" \"nodemon web-server.js\" --names \"MCP-Server,Inspector,Web-Dashboard\" --prefix-colors \"blue,green,magenta\"",
     "prod": "node index.js",
     "inspector": "npx @modelcontextprotocol/inspector node index.js",
     "web": "node web-server.js",
     "web-dev": "nodemon web-server.js",
+    "vercel-dev": "vercel dev",
+    "deploy": "vercel --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

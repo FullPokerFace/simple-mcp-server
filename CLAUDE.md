@@ -100,3 +100,6 @@ The project includes the MCP Inspector for easy testing:
 - Add more tools (subtract, multiply, etc.)
 - Consider TypeScript migration for better type safety
 - Explore other MCP capabilities (resources, prompts)
+
+## To Memorize
+- to memorize
