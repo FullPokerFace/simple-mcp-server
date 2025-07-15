@@ -16,7 +16,8 @@
   "description": "",
   "dependencies": {
     "@modelcontextprotocol/inspector": "^0.16.1",
-    "@modelcontextprotocol/sdk": "^1.15.1"
+    "@modelcontextprotocol/sdk": "^1.15.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
