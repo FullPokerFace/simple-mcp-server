@@ -271,7 +271,10 @@
     <script>
         async function loadStats() {
             try {
-                const response = await fetch('/api/web/stats');
+                // Use different endpoints based on environment
+                const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const endpoint = isLocalhost ? '/api/tool-stats' : '/api/web/stats';
+                const response = await fetch(endpoint);
                 const stats = await response.json();
                 
                 // Create stats cards
@@ -334,7 +337,10 @@
             historyTable.style.display = 'none';
             
             try {
-                const response = await fetch(`/api/web/history?limit=${limit}`);
+                // Use different endpoints based on environment
+                const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const endpoint = isLocalhost ? '/api/tool-history' : '/api/web/history';
+                const response = await fetch(`${endpoint}?limit=${limit}`);
                 const history = await response.json();
                 
                 if (history.length === 0) {
