@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
-    "dev": "npx @modelcontextprotocol/inspector nodemon index.js",
+    "dev": "concurrently \"nodemon index.js\" \"npx @modelcontextprotocol/inspector node index.js\" \"nodemon web-server.js\" --names \"MCP-Server,Inspector,Web-Dashboard\" --prefix-colors \"blue,green,magenta\"",
     "prod": "node index.js",
     "inspector": "npx @modelcontextprotocol/inspector node index.js",
+    "web": "node web-server.js",
+    "web-dev": "nodemon web-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,9 +19,11 @@
   "dependencies": {
     "@modelcontextprotocol/inspector": "^0.16.1",
     "@modelcontextprotocol/sdk": "^1.15.1",
+    "express": "^5.1.0",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "nodemon": "^3.1.10"
   }
 }
