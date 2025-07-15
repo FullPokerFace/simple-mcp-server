@@ -3,7 +3,7 @@
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { registerConfigResources } from "./mcp/resources/config.js";
-import { registerMathTools } from "./mcp/tools/math.js";
+import { registerAllTools } from "./mcp/tools/index.js";
 
 // Create a new MCP server
 const server = new Server(
@@ -23,7 +23,7 @@ const server = new Server(
 registerConfigResources(server);
 
 // Register all tools
-registerMathTools(server);
+registerAllTools(server);
 
 // Start the server
 async function main() {
